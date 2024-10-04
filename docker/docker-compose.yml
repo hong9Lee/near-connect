@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  mysql:
+    container_name: mysql
+    platform: linux/amd64
+    image: mysql:8.0.33
+    volumes:
+      - ./local-db/conf:/etc/mysql/conf.d
+      - ./local-db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "23306:3306"
+    environment:
+      TZ: Asia/Seoul
+      MYSQL_ROOT_PASSWORD: 102030
+    ulimits:
+      nofile:
+        soft: 20000
+        hard: 40000
+    networks:
+      - local-net
+
+  local-redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "26379:6379"  # 호스트의 26379 포트와 컨테이너의 6379 포트(기본 Redis 포트)를 매핑
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    driver: bridge
+    external: true
+    name: docker_local-net
