@@ -1,1 +1,10 @@
-spring.application.name=websocket
+spring:
+  application:
+    name: websocket
+
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 26379
