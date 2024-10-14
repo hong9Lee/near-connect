@@ -12,3 +12,9 @@ spring:
     redis:
       host: localhost
       port: 26379
+
+logging:
+  level:
+    org.springframework.web.socket: TRACE
+    org.springframework.messaging: TRACE
+    org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler: TRACE
