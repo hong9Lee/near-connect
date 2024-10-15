@@ -1,4 +1,4 @@
-package com.hg.api
+package com.hg.nc
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
