@@ -1,4 +1,4 @@
-package com.hg.api.domain
+package com.hg.nc.domain
 
 import java.math.BigDecimal
 

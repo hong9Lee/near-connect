@@ -1,6 +1,6 @@
-package com.hg.api.entity
+package com.hg.nc.entity
 
-import com.hg.api.domain.UserLocationHistory
+import com.hg.nc.domain.UserLocationHistory
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.ZonedDateTime

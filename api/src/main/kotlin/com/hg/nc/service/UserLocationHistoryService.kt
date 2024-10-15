@@ -1,8 +1,8 @@
-package com.hg.api.service
+package com.hg.nc.service
 
-import com.hg.api.adapter.UserLocationHistoryAdapter
-import com.hg.api.controller.data.UserLocationRequest
-import com.hg.api.domain.UserLocationHistory
+import com.hg.nc.adapter.UserLocationHistoryAdapter
+import com.hg.nc.controller.data.UserLocatioHistorySaveRequest
+import com.hg.nc.domain.UserLocationHistory
 import org.springframework.stereotype.Service
 
 @Service
@@ -11,7 +11,7 @@ class UserLocationHistoryService(
 ) {
 
     fun saveUserLocationHistory(
-        request: UserLocationRequest
+        request: UserLocatioHistorySaveRequest
     ) {
         userLocationHistoryAdapter.saveUserLocationHistory(
             UserLocationHistory(

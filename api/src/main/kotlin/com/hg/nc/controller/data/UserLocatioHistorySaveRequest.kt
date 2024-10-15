@@ -1,8 +1,8 @@
-package com.hg.api.controller.data
+package com.hg.nc.controller.data
 
 import java.math.BigDecimal
 
-data class UserLocationRequest(
+data class UserLocatioHistorySaveRequest(
     val id: Long,
     val userId: String,
     val latitude: BigDecimal,

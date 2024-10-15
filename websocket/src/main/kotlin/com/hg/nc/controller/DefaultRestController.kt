@@ -1,4 +1,4 @@
-package com.hg.websocket.controller
+package com.hg.nc.controller
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.http.ResponseEntity

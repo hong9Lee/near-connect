@@ -1,4 +1,4 @@
-package com.hg.websocket.config
+package com.hg.nc.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 

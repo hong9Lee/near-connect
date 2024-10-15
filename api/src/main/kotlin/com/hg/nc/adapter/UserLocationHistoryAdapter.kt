@@ -1,8 +1,8 @@
-package com.hg.api.adapter
+package com.hg.nc.adapter
 
-import com.hg.api.domain.UserLocationHistory
-import com.hg.api.entity.UserLocationHistoryEntity
-import com.hg.api.repository.UserLocationHistoryRepository
+import com.hg.nc.domain.UserLocationHistory
+import com.hg.nc.entity.UserLocationHistoryEntity
+import com.hg.nc.repository.UserLocationHistoryRepository
 import org.springframework.stereotype.Component
 
 @Component
