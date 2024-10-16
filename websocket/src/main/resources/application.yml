@@ -6,6 +6,10 @@ spring:
   application:
     name: websocket
 
+  profiles:
+    include:
+      - persistence
+
   cache:
     type: redis
   data:
@@ -18,3 +22,5 @@ logging:
     org.springframework.web.socket: TRACE
     org.springframework.messaging: TRACE
     org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler: TRACE
+
+

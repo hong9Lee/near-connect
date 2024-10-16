@@ -12,6 +12,8 @@ bootJar.enabled = true
 jar.enabled = true
 
 dependencies {
+    implementation(project(":persistence"))
+
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
