@@ -1,11 +1,11 @@
 rootProject.name = "near-connect"
 
 /** Infra 계층 */
-include("persistence")
+include("near-connect:persistence")
 
 /** Application 계층 */
-include("api")
-include("websocket")
+include("near-connect:api")
+include("near-connect:websocket")
 
 /** Domain 계층 */
-//include("core")
+include("near-connect:core")
