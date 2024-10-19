@@ -9,11 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/near-connect" />
-            <option value="$PROJECT_DIR$/near-connect/api" />
-            <option value="$PROJECT_DIR$/near-connect/core" />
-            <option value="$PROJECT_DIR$/near-connect/persistence" />
-            <option value="$PROJECT_DIR$/near-connect/websocket" />
+            <option value="$PROJECT_DIR$/apps" />
+            <option value="$PROJECT_DIR$/apps/api" />
+            <option value="$PROJECT_DIR$/apps/core" />
+            <option value="$PROJECT_DIR$/apps/persistence" />
+            <option value="$PROJECT_DIR$/apps/websocket" />
           </set>
         </option>
       </GradleProjectSettings>

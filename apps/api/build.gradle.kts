@@ -12,22 +12,12 @@ bootJar.enabled = true
 jar.enabled = true
 
 dependencies {
-    implementation(project(":near-connect:core"))
+    implementation(project(":apps:core"))
+    implementation(project(":apps:persistence"))
 
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-
-    // websocket
-    implementation("org.springframework.boot:spring-boot-starter-websocket")
-    implementation("org.springframework:spring-messaging")
-
-//    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-//    implementation("mysql:mysql-connector-java:8.0.23")
-
-    // redis
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

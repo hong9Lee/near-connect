@@ -30,5 +30,4 @@ class StompWebSocketConfig (
     fun taskScheduler(): ThreadPoolTaskScheduler {
         return ThreadPoolTaskScheduler()
     }
-
 }

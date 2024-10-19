@@ -13,6 +13,7 @@ plugins {
 
 group = "com.hg"
 version = "1.0-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_21
 
 allprojects {
     apply(plugin = "org.springframework.boot")
