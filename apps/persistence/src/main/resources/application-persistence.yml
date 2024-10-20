@@ -26,3 +26,10 @@ spring:
     locations:
       - "classpath:db/migration/near_connect"
 
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 26379
+      ttl: 300

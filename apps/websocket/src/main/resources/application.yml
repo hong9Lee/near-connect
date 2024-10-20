@@ -14,14 +14,6 @@ spring:
     include:
       - persistence
 
-  cache:
-    type: redis
-  data:
-    redis:
-      host: localhost
-      port: 26379
-      ttl: 300
-
 logging:
   level:
     org.springframework.web.socket: TRACE
