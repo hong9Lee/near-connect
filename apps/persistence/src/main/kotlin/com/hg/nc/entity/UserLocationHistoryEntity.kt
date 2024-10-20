@@ -22,7 +22,7 @@ class UserLocationHistoryEntity(
     val longitude: Double,
 
     @Column(name = "reg_date_time", nullable = false, updatable = false)
-    private var regDateTime: ZonedDateTime? = null,
+    private var regDateTime: ZonedDateTime? = ZonedDateTime.now(),
 ) {
     companion object {
         fun of(userLocationHistory: UserLocationHistory): UserLocationHistoryEntity {
