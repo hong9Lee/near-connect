@@ -14,10 +14,12 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 @Order(Ordered.HIGHEST_PRECEDENCE + 99)
 class StompWebSocketConfig (
-
+    private val userValidationInterceptor: UserValidationInterceptor
 ): WebSocketMessageBrokerConfigurer {
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
-        registry.addEndpoint("/ws/stomp/default").setAllowedOrigins("*")
+        registry.addEndpoint("/ws/stomp/default")
+            .setAllowedOrigins("*")
+            .addInterceptors(userValidationInterceptor)
     }
 
     override fun configureMessageBroker(registry: MessageBrokerRegistry) {

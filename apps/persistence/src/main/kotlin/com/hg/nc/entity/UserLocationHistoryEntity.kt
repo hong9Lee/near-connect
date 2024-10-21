@@ -10,7 +10,7 @@ class UserLocationHistoryEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "seq", nullable = false, updatable = false)
-    val id: Long? = null,
+    val seq: Long? = null,
 
     @Column(name = "user_id")
     val userId: String,
