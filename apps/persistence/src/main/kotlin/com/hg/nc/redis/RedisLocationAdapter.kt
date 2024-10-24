@@ -1,4 +1,4 @@
-package com.hg.nc.adapter
+package com.hg.nc.redis
 
 import com.hg.nc.port.RedisLocationCachePort
 import org.springframework.data.redis.core.RedisTemplate
