@@ -19,5 +19,6 @@ logging:
     org.springframework.web.socket: TRACE
     org.springframework.messaging: TRACE
     org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler: TRACE
-
-
+    org.springframework.data.redis: DEBUG
+    org.springframework.data.redis.connection: DEBUG
+    org.springframework.data.redis.listener: TRACE
