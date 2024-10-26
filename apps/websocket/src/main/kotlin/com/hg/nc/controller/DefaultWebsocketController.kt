@@ -1,10 +1,9 @@
 package com.hg.nc.controller
 
-import com.hg.nc.service.UserLocationService
 import com.hg.nc.model.UserLocationPubRequest
+import com.hg.nc.service.UserLocationService
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.handler.annotation.Payload
-import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Controller
 
 /**
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Controller
  */
 @Controller
 class DefaultWebsocketController(
-    private val simpMessagingTemplate: SimpMessagingTemplate,
     private val userLocationService: UserLocationService
 ) {
 
@@ -25,7 +23,5 @@ class DefaultWebsocketController(
             latitude = message.latitude.toDouble(),
             longitude = message.longitude.toDouble()
         )
-
-        simpMessagingTemplate.convertAndSend("/sub/location/${message.userId}", message)
     }
 }

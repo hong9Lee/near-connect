@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 @Component
 class RedisLocationAdapter(
     private val redisTemplate: RedisTemplate<String, String>
-): RedisLocationCachePort {
+) : RedisLocationCachePort {
     override fun saveLocation(userId: String, latitude: Double, longitude: Double) {
         val key = "location:$userId"
         val value = "$latitude,$longitude"
