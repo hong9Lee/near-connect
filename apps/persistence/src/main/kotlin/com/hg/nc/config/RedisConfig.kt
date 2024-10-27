@@ -39,9 +39,9 @@ class RedisConfig(
         container.setConnectionFactory(redisConnectionFactory())
 
         val listenerAdapter = MessageListenerAdapter(redisLocationSubscriber, "handleMessage")
+        container.addMessageListener(listenerAdapter, ChannelTopic("location_updates:test_user"))
         listenerAdapter.afterPropertiesSet()
 
-        container.addMessageListener(listenerAdapter, ChannelTopic("location_updates"))
         return container
     }
 }

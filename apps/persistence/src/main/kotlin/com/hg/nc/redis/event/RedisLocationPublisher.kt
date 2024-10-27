@@ -14,7 +14,7 @@ class RedisLocationPublisher(
     override fun publishLocationUpdate(userId: String, latitude: Double, longitude: Double) {
         logger.info { "redis publish location update $userId, $latitude, $longitude" }
 
-        val topic = "location_updates"
-        redisTemplate.convertAndSend(topic, "$userId,$latitude,$longitude")
+        val channelName = "location_updates:$userId"
+        redisTemplate.convertAndSend(channelName, "$userId,$latitude,$longitude")
     }
 }
