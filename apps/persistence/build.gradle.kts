@@ -24,4 +24,6 @@ dependencies {
     // redis
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("mysql:mysql-connector-java:8.0.23")
+
+    implementation("org.apache.commons:commons-lang3:3.12.0")
 }
