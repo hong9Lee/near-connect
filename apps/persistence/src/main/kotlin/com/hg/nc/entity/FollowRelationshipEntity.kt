@@ -1,6 +1,6 @@
 package com.hg.nc.entity
 
-import com.hg.nc.support.BooleanYnConverter
+import com.hg.nc.supports.BooleanYnConverter
 import jakarta.persistence.*
 import java.time.ZonedDateTime
 
