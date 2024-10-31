@@ -2,7 +2,7 @@ package com.hg.nc.adapter
 
 import com.hg.nc.domain.UserLocationHistory
 import com.hg.nc.entity.UserLocationHistoryEntity
-import com.hg.nc.port.UserLocationHistoryRepositoryPort
+import com.hg.nc.port.user.UserLocationHistoryRepositoryPort
 import com.hg.nc.repository.UserLocationHistoryRepository
 import org.springframework.stereotype.Component
 

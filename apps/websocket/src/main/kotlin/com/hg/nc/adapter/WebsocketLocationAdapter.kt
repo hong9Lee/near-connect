@@ -1,6 +1,6 @@
 package com.hg.nc.adapter
 
-import com.hg.nc.port.RedisLocationBroadcastPort
+import com.hg.nc.port.redis.RedisLocationBroadcastPort
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Component
 

@@ -1,7 +1,7 @@
 package com.hg.nc.adapter
 
 import com.hg.nc.domain.Users
-import com.hg.nc.port.UserPort
+import com.hg.nc.port.user.UserPort
 import com.hg.nc.repository.UserRepository
 import org.springframework.stereotype.Component
 

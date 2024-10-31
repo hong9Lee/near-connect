@@ -1,6 +1,6 @@
 package com.hg.nc.redis
 
-import com.hg.nc.port.RedisLocationCachePort
+import com.hg.nc.port.redis.RedisLocationCachePort
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Component
 import java.util.concurrent.TimeUnit
