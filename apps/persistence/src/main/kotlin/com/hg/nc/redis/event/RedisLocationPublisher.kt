@@ -1,6 +1,6 @@
 package com.hg.nc.redis.event
 
-import com.hg.nc.port.RedisLocationPublisher
+import com.hg.nc.port.redis.RedisLocationPublisher
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Component

@@ -1,7 +1,7 @@
 package com.hg.nc.redis.event
 
-import com.hg.nc.port.RedisLocationBroadcastPort
-import com.hg.nc.port.RedisLocationSubscriber
+import com.hg.nc.port.redis.RedisLocationBroadcastPort
+import com.hg.nc.port.redis.RedisLocationSubscriber
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.stereotype.Component
 
