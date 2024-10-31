@@ -1,4 +1,4 @@
-package com.hg.nc.support
+package com.hg.nc.supports
 
 import jakarta.persistence.AttributeConverter
 import jakarta.persistence.Converter

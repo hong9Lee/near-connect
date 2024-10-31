@@ -1,4 +1,4 @@
-package com.hg.nc.port
+package com.hg.nc.port.redis
 
 interface RedisLocationSubscriber {
     fun handleMessage(message: String)

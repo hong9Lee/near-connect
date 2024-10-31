@@ -1,4 +1,4 @@
-package com.hg.nc.port
+package com.hg.nc.port.user
 
 import com.hg.nc.domain.Users
 
