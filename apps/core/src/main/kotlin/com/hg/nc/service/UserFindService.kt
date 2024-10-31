@@ -1,6 +1,6 @@
 package com.hg.nc.service
 
-import com.hg.nc.port.UserPort
+import com.hg.nc.port.user.UserPort
 import org.springframework.stereotype.Service
 
 @Service

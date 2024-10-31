@@ -1,9 +1,9 @@
 package com.hg.nc.service
 
 import com.hg.nc.domain.UserLocationHistory
-import com.hg.nc.port.RedisLocationCachePort
-import com.hg.nc.port.RedisLocationPublisher
-import com.hg.nc.port.UserLocationHistoryRepositoryPort
+import com.hg.nc.port.redis.RedisLocationCachePort
+import com.hg.nc.port.redis.RedisLocationPublisher
+import com.hg.nc.port.user.UserLocationHistoryRepositoryPort
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
