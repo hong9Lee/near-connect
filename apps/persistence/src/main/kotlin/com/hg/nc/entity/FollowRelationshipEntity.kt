@@ -1,5 +1,6 @@
 package com.hg.nc.entity
 
+import com.hg.nc.domain.FollowRelationship
 import com.hg.nc.supports.BooleanYnConverter
 import jakarta.persistence.*
 import java.time.ZonedDateTime
@@ -7,7 +8,10 @@ import java.time.ZonedDateTime
 @Entity
 @Table(
     name = "follow_relationship",
-    uniqueConstraints = [UniqueConstraint(name = "unique_follower_followed", columnNames = ["follower_id", "followed_id"])]
+    uniqueConstraints = [UniqueConstraint(
+        name = "unique_follower_followed",
+        columnNames = ["follower_id", "followed_id"]
+    )]
 )
 class FollowRelationshipEntity(
 
@@ -28,4 +32,26 @@ class FollowRelationshipEntity(
     @Column(name = "active_yn", nullable = false, columnDefinition = "CHAR(1)")
     @Convert(converter = BooleanYnConverter::class)
     private var isActive: Boolean = false
-)
+) {
+    companion object {
+        fun of(domain: FollowRelationship): FollowRelationshipEntity {
+            return FollowRelationshipEntity(
+                seq = domain.seq,
+                followerId = domain.followerId,
+                followedId = domain.followedId,
+                eventDateTime = domain.eventDateTime ?: ZonedDateTime.now(),
+                isActive = domain.isActive
+            )
+        }
+    }
+
+    fun toDomain(): FollowRelationship {
+        return FollowRelationship(
+            seq = this.seq,
+            followerId = this.followerId,
+            followedId = this.followedId,
+            eventDateTime = this.eventDateTime,
+            isActive = this.isActive
+        )
+    }
+}

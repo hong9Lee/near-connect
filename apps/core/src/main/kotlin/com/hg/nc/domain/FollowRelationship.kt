@@ -2,7 +2,7 @@ package com.hg.nc.domain
 
 import java.time.ZonedDateTime
 
-data class FollowRelationShip(
+data class FollowRelationship(
     val seq: Long? = null,
     val followerId: String,
     val followedId: String,
