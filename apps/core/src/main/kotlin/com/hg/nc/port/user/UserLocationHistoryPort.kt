@@ -2,6 +2,6 @@ package com.hg.nc.port.user
 
 import com.hg.nc.domain.UserLocationHistory
 
-interface UserLocationHistoryRepositoryPort {
+interface UserLocationHistoryPort {
     fun save(userLocationHistory: UserLocationHistory)
 }

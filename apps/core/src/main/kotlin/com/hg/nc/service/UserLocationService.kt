@@ -3,7 +3,7 @@ package com.hg.nc.service
 import com.hg.nc.domain.UserLocationHistory
 import com.hg.nc.port.redis.RedisLocationCachePort
 import com.hg.nc.port.redis.RedisLocationPublisher
-import com.hg.nc.port.user.UserLocationHistoryRepositoryPort
+import com.hg.nc.port.user.UserLocationHistoryPort
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -12,7 +12,7 @@ private val logger = KotlinLogging.logger {}
 
 @Service
 class UserLocationService(
-    private val userLocationHistoryRepositoryPort: UserLocationHistoryRepositoryPort,
+    private val userLocationHistoryPort: UserLocationHistoryPort,
     private val redisLocationCachePort: RedisLocationCachePort,
     private val redisLocationPublisher: RedisLocationPublisher
 ) {
@@ -22,7 +22,7 @@ class UserLocationService(
         logger.info { "save location $userId, $latitude, $longitude" }
 
         // TODO: user 조회 후 저장 필요 (duplication check)
-        userLocationHistoryRepositoryPort.save(
+        userLocationHistoryPort.save(
             UserLocationHistory(
                 userId = userId,
                 latitude = latitude,
