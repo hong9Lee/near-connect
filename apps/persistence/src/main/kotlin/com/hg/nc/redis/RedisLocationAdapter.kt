@@ -14,4 +14,13 @@ class RedisLocationAdapter(
         val value = "$latitude,$longitude"
         redisTemplate.opsForValue().set(key, value, 300, TimeUnit.SECONDS)
     }
+
+    override fun getLocationsByUserIds(userIds: Set<String>): Map<String, String> {
+        val locationKeys = userIds.map { "user:location:$it" }
+        val locations = redisTemplate.opsForValue().multiGet(locationKeys)
+
+        return userIds.zip(locations ?: listOf()).filter { it.second != null }.associate {
+            it.first to it.second!!
+        }
+    }
 }
