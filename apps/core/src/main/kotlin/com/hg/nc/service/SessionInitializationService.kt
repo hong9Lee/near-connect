@@ -2,15 +2,16 @@ package com.hg.nc.service
 
 import com.hg.nc.port.redis.RedisLocationCachePort
 import com.hg.nc.port.relationship.FollowRelationshipPort
-import com.hg.nc.port.user.UserLocationHistoryPort
 import com.hg.nc.port.user.UserPort
+import com.hg.nc.port.websocket.WebSocketInitializationPort
 import org.springframework.stereotype.Service
 
 @Service
 class SessionInitializationService(
     private val userPort: UserPort,
     private val followRelationshipPort: FollowRelationshipPort,
-    private val redisLocationCachePort: RedisLocationCachePort
+    private val redisLocationCachePort: RedisLocationCachePort,
+    private val webSocketInitializationPort: WebSocketInitializationPort
 ) {
 
     fun init(
@@ -27,6 +28,7 @@ class SessionInitializationService(
         val friendLocations = redisLocationCachePort.getLocationsByUserIds(followedIdSet)
 
         // 팔로잉 친구 웹소켓 채널 전부 구독
+        sendInitializationToWebSocket(userId, followedIdSet, friendLocations)
 
         // 나의 위치 broadcast
 
@@ -36,6 +38,14 @@ class SessionInitializationService(
 
     private fun findUser(userId: String): Boolean {
         return userPort.isUserExists(userId) != null
+    }
+
+    private fun sendInitializationToWebSocket(userId: String, followedIdSet: Set<String>, friendLocations: Map<String, String>) {
+        webSocketInitializationPort.initializeSession(
+            userId = userId,
+            friendIds = followedIdSet,
+            friendLocations = friendLocations
+        )
     }
 
 }
