@@ -1,21 +1,26 @@
 package com.hg.nc.service
 
+import com.hg.nc.port.redis.RedisLocationBroadcastPort
 import com.hg.nc.port.redis.RedisLocationCachePort
 import com.hg.nc.port.relationship.FollowRelationshipPort
 import com.hg.nc.port.user.UserPort
 import com.hg.nc.port.websocket.WebSocketInitializationPort
 import org.springframework.stereotype.Service
+import java.math.BigDecimal
 
 @Service
 class SessionInitializationService(
     private val userPort: UserPort,
     private val followRelationshipPort: FollowRelationshipPort,
     private val redisLocationCachePort: RedisLocationCachePort,
-    private val webSocketInitializationPort: WebSocketInitializationPort
+    private val webSocketInitializationPort: WebSocketInitializationPort,
+    private val redisLocationBroadcastPort: RedisLocationBroadcastPort
 ) {
 
     fun init(
-        userId: String
+        userId: String,
+        latitude: BigDecimal,
+        longitude: BigDecimal
     ) {
         // user 검증
         if (!checkValidUser(userId)) return
@@ -31,7 +36,7 @@ class SessionInitializationService(
         sendInitializationToWebSocket(userId, followedIdSet, friendLocations)
 
         // 나의 위치 broadcast
-
+        broadcastUserLocation(userId, latitude, longitude)
     }
 
     private fun checkValidUser(userId: String): Boolean = userId.isNullOrEmpty() || findUser(userId)
@@ -46,6 +51,11 @@ class SessionInitializationService(
             friendIds = followedIdSet,
             friendLocations = friendLocations
         )
+    }
+
+    private fun broadcastUserLocation(userId: String, latitude: BigDecimal, longitude: BigDecimal) {
+        val locationMessage = "$latitude,$longitude"
+        redisLocationBroadcastPort.broadcastLocationUpdate(userId, locationMessage)
     }
 
 }

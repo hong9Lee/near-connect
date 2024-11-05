@@ -15,6 +15,10 @@ class SessionInitializationController(
     fun init(
         request: SessionInitializationRequest
     ) {
-        sessionInitializationService.init(request.userId)
+        sessionInitializationService.init(
+            userId = request.userId,
+            latitude = request.latitude,
+            longitude = request.longitude
+        )
     }
 }

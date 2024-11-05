@@ -1,7 +1,9 @@
 package com.hg.nc.controller
 
 import com.hg.nc.model.UserLocationPubRequest
+import com.hg.nc.redis.event.RedisLocationSubscriber
 import com.hg.nc.service.UserLocationService
+import org.springframework.messaging.handler.annotation.DestinationVariable
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.handler.annotation.Payload
 import org.springframework.stereotype.Controller
@@ -11,7 +13,8 @@ import org.springframework.stereotype.Controller
  */
 @Controller
 class DefaultWebsocketController(
-    private val userLocationService: UserLocationService
+    private val userLocationService: UserLocationService,
+    private val redisLocationSubscriber: RedisLocationSubscriber
 ) {
 
     /** /pub/message 클라이언트 요청 처리 */
@@ -23,5 +26,16 @@ class DefaultWebsocketController(
             latitude = message.latitude.toDouble(),
             longitude = message.longitude.toDouble()
         )
+    }
+
+    @MessageMapping("/user/{friendId}/location")
+    fun subscribeToLocation(
+        @DestinationVariable friendId: String,
+        @Payload userId: String
+    ): String {
+        println("User $userId subscribing to location updates for friend: $friendId")
+
+        redisLocationSubscriber.subscribeToFriendLocation(userId, friendId)
+        return "Subscribed to $friendId location updates"
     }
 }
